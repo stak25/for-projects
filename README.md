@@ -1,26 +1,30 @@
+## System Block Diagram (Input → Process → Output)
+
+```mermaid
 flowchart TD
     I["Input
-    Hand Gestures via Webcam"]
-    
+    Hand Gestures
+    (Webcam)"]
+
     P1["Process
     Gesture Recognition System
     (MediaPipe + OpenCV)"]
-    
+
     P2["Process
-    Command Mapping
-    (Movement Protocol)"]
-    
+    Car Movement Commands
+    (Protocol Mapping)"]
+
     P3["Process
     Communication Bridge
-    (Python → Serial)"]
-    
+    (Host → Car via Serial)"]
+
     P4["Process
-    Arduino Controller
-    (Master/Slave Logic)"]
-    
+    Arduino Board
+    (Master / Slave Control)"]
+
     O["Output
-    Car Movement
-    (Forward / Backward / Left / Right / Stop)"]
+    Car Motor Control Unit
+    (Vehicle Movement)"]
 
     I --> P1
     P1 --> P2
