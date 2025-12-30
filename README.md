@@ -1,21 +1,29 @@
-## Visual Overview
-
-```mermaid
 flowchart TD
-    A0["Gesture Recognition System
-"]
-    A1["Communication Bridge (Host to Car)
-"]
-    A2["Car Movement Commands (Protocol)
-"]
-    A3["Car Motor Control Unit
-"]
-    A4["Arduino Board Roles (Master/Slave)
-"]
-    A0 -- "Generates using" --> A2
-    A0 -- "Sends commands via" --> A1
-    A1 -- "Implemented by" --> A4
-    A1 -- "Delivers commands to" --> A3
-    A4 -- "Directly controls" --> A3
-    A2 -- "Interpreted by" --> A3
-```
+    I["Input
+    Hand Gestures via Webcam"]
+    
+    P1["Process
+    Gesture Recognition System
+    (MediaPipe + OpenCV)"]
+    
+    P2["Process
+    Command Mapping
+    (Movement Protocol)"]
+    
+    P3["Process
+    Communication Bridge
+    (Python → Serial)"]
+    
+    P4["Process
+    Arduino Controller
+    (Master/Slave Logic)"]
+    
+    O["Output
+    Car Movement
+    (Forward / Backward / Left / Right / Stop)"]
+
+    I --> P1
+    P1 --> P2
+    P2 --> P3
+    P3 --> P4
+    P4 --> O
